@@ -1,0 +1,46 @@
+# Claude Code configuration (local only)
+CLAUDE.md
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Generated PDFs and output files
+output/
+*.pdf
+
+# Temporary files
+temp/
+*.tmp
+*.temp
+*-temp.md
+*-preprocessed.md
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Log files
+*.log
+logs/
+
+# Environment files (if any)
+.env
+.env.local
+
+# Coverage and test files
+coverage/
+.nyc_output/

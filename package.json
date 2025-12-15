@@ -1,0 +1,22 @@
+{
+  "name": "m3-sdk-pdf-generator",
+  "version": "1.0.0",
+  "description": "M3 Mobile SDK Documentation - Professional PDF Generator with TOC and Git History",
+  "main": "preprocess-markdown.js",
+  "scripts": {
+    "test": "node preprocess-markdown.js --test"
+  },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "documentation",
+    "toc",
+    "git-history"
+  ],
+  "author": "M3 Mobile Documentation Team",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^11.1.1",
+    "simple-git": "^3.22.0"
+  }
+}

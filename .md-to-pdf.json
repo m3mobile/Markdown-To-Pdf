@@ -1,0 +1,37 @@
+{
+  "stylesheet": [
+    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css",
+    "sdk-professional.css"
+  ],
+  "css": "",
+  "body_class": [],
+  "page_media_type": "print",
+  "highlight_style": "github",
+  "marked_options": {
+    "headerIds": true,
+    "smartypants": true,
+    "gfm": true,
+    "breaks": false,
+    "tables": true
+  },
+  "pdf_options": {
+    "format": "A4",
+    "margin": {
+      "top": "25mm",
+      "right": "20mm",
+      "bottom": "25mm",
+      "left": "20mm"
+    },
+    "printBackground": true,
+    "preferCSSPageSize": true,
+    "displayHeaderFooter": true,
+    "headerTemplate": "<div style='font-size:9pt; text-align:center; width:100%; color:#666; padding:10px 0;'><span class='title'></span></div>",
+    "footerTemplate": "<div style='font-size:9pt; text-align:center; width:100%; color:#666; padding:10px 0;'>M3 Mobile SDK Documentation | Page <span class='pageNumber'></span> of <span class='totalPages'></span></div>"
+  },
+  "launch_options": {
+    "args": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  }
+}

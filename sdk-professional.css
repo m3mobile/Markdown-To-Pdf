@@ -1,0 +1,701 @@
+/**
+ * M3 Mobile SDK Documentation - Professional Style
+ * Optimized for developers and business stakeholders
+ */
+
+/* ===== Page Setup ===== */
+@page {
+  size: A4;
+  margin: 25mm 20mm;
+}
+
+@page :first {
+  margin-top: 10mm;
+}
+
+/* ===== Root Variables (M3 Mobile Brand Colors) ===== */
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #0052a3;
+  --primary-light: #3399ff;     /* Lighter blue for table headers */
+  --secondary-light: #0080ff;   /* Lighter secondary for gradients */
+  --accent-color: #00aaff;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --bg-light: #f8f9fa;
+  --bg-code: #f5f7f9;
+  --border-color: #dee2e6;
+  --code-keyword: #0066cc;
+  --code-string: #22863a;
+  --code-comment: #6a737d;
+}
+
+/* ===== Typography ===== */
+body {
+  font-family: 'Segoe UI', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== Headings - Increased spacing ===== */
+h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 40pt;
+  margin-bottom: 24pt;
+  padding-bottom: 12pt;
+  border-bottom: 3px solid var(--primary-color);
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 22pt;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-top: 36pt;
+  margin-bottom: 20pt;
+  padding-bottom: 8pt;
+  border-bottom: 2px solid var(--border-color);
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 28pt;
+  margin-bottom: 16pt;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 20pt;
+  margin-bottom: 12pt;
+  page-break-after: avoid;
+}
+
+h5, h6 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 16pt;
+  margin-bottom: 10pt;
+  page-break-after: avoid;
+}
+
+/* ===== Paragraphs ===== */
+p {
+  margin-top: 0;
+  margin-bottom: 14pt;
+  text-align: justify;
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+  border-bottom-style: solid;
+}
+
+/* ===== Code Blocks - Enhanced spacing and styling ===== */
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 9.5pt;
+  background-color: var(--bg-code);
+  padding: 2pt 5pt;
+  border-radius: 3pt;
+  color: var(--danger-color);
+  font-weight: 500;
+}
+
+pre {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 6pt;
+  padding: 16pt;
+  margin-top: 20pt;  /* Increased from default */
+  margin-bottom: 24pt;  /* Increased from default */
+  overflow: visible;  /* Changed from auto - no scrolling in PDF */
+  page-break-inside: avoid;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Prevent code overflow in PDF */
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 8.5pt;  /* Reduced from 9pt for better fit */
+  line-height: 1.6;  /* Increased from 1.5 for better readability */
+  color: var(--text-primary);
+  font-weight: normal;
+  display: block;    /* Ensure block-level display */
+  max-width: 100%;   /* Never exceed parent width */
+
+  /* Strong code wrapping settings to prevent text cutoff in PDF */
+  white-space: pre-wrap !important;  /* Force wrap with !important */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;       /* Changed from break-word to break-all (stronger) */
+  hyphens: auto;               /* Auto-hyphenation for long words */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+}
+
+/* Code syntax highlighting (approximation) */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: var(--code-keyword);
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: var(--code-string);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+/* ===== Tables - Professional styling ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20pt;
+  margin-bottom: 0pt !important;  /* Remove bottom margin */
+  font-size: 10pt;
+  page-break-inside: avoid;
+  box-shadow: none !important;  /* Remove shadow that might create space */
+  border-spacing: 0 !important;
+  padding: 0 !important;
+  table-layout: auto;  /* Changed from fixed to auto for better column width */
+  line-height: 1 !important;
+}
+
+/* Remove any pseudo-elements that might create empty rows */
+table::before,
+table::after,
+thead::before,
+thead::after,
+tbody::before,
+tbody::after,
+tr::before,
+tr::after,
+table *::before,
+table *::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  border: none !important;
+}
+
+thead {
+  background: #2c5282;  /* Professional dark blue - solid color */
+  color: white;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  display: table-header-group;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+}
+
+/* Force remove any spacing before first header row */
+thead::before {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Force first tr to have no top spacing */
+thead tr:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+/* =================================================================
+   FIX: Empty header rows in tables (Puppeteer PDF-specific)
+   Updated: 2025-12-05
+
+   Research: Puppeteer PDF rendering requires line-height:0
+   instead of display:none for reliable row collapsing
+   ================================================================= */
+
+/* Strategy 1: Hide completely empty rows */
+thead tr:empty {
+  display: none !important;
+  line-height: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Strategy 2: Hide rows with only whitespace/empty cells */
+thead tr:has(th:empty):not(:has(th:not(:empty))) {
+  display: none !important;
+  line-height: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+}
+
+/* Strategy 3: Hide th elements inside empty rows */
+thead tr:empty th,
+thead tr:has(th:empty):not(:has(th:not(:empty))) th {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  border: none !important;
+}
+
+/* Strategy 4: Force collapse of any empty table element */
+table *:empty:not(td):not(th) {
+  display: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove any inherited spacing from GitHub CSS */
+thead tr {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-spacing: 0 !important;
+}
+
+th {
+  padding: 12pt 10pt;
+  text-align: left;
+  font-weight: 600;
+  font-size: 10.5pt;
+  border: none;
+  margin: 0;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Ensure first row has no extra space */
+thead tr:first-child th {
+  padding-top: 12pt !important;
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+tbody tr:first-child td,
+tr:first-child td {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+tbody {
+  display: table-row-group;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+}
+
+/* Force remove any spacing after tbody */
+tbody::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Remove bottom border from last row to prevent gap appearance */
+tbody tr:last-child td {
+  border-bottom: none !important;
+  padding-bottom: 10pt !important;  /* Maintain padding but no border */
+  margin-bottom: 0 !important;
+}
+
+/* Force last row to have no extra height */
+tbody tr:last-child {
+  height: auto !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+tr {
+  display: table-row;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto;
+}
+
+/* Remove any empty rows */
+tr:empty,
+tbody tr:empty {
+  display: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+
+td {
+  padding: 10pt;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+  margin: 0;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+/* Remove spacing between table and following horizontal rule */
+table + hr {
+  margin-top: 0 !important;
+  margin-bottom: 20pt !important;
+  border: none !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+/* Aggressive fix: remove any margin after table */
+table + * {
+  margin-top: 0 !important;
+}
+
+tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+/* ===== Lists ===== */
+ul, ol {
+  margin-top: 10pt;
+  margin-bottom: 16pt;
+  padding-left: 24pt;
+}
+
+li {
+  margin-bottom: 6pt;
+  line-height: 1.6;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+}
+
+/* ===== Blockquotes (Notes/Warnings) ===== */
+blockquote {
+  margin: 20pt 0;
+  padding: 12pt 16pt;
+  background-color: #fff8e1;
+  border-left: 5px solid var(--warning-color);
+  border-radius: 4pt;
+  font-style: italic;
+  color: #856404;
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ===== Horizontal Rules ===== */
+hr {
+  border: none;
+  border-top: 2px solid var(--border-color);
+  margin: 28pt 0;
+}
+
+/* ===== Images ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20pt auto;
+  border-radius: 6pt;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Page Breaks ===== */
+.page-break {
+  page-break-before: always;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid;
+}
+
+pre, table, figure {
+  page-break-inside: avoid;
+}
+
+/* ===== Print Optimizations ===== */
+@media print {
+  body {
+    font-size: 10.5pt;
+  }
+
+  a {
+    color: var(--text-primary);
+    border-bottom: none;
+  }
+
+  pre {
+    border: 1px solid #ccc;
+  }
+}
+
+/* ===== Custom Classes for Special Elements ===== */
+.badge {
+  display: inline-block;
+  padding: 3pt 8pt;
+  font-size: 8.5pt;
+  font-weight: 600;
+  border-radius: 3pt;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.api-method {
+  font-family: 'Consolas', monospace;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.deprecated {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+/* ===== Specific improvements for spacing ===== */
+/* Ensure good spacing between headings and following code blocks */
+h1 + pre,
+h2 + pre,
+h3 + pre,
+h4 + pre {
+  margin-top: 16pt;
+}
+
+/* Ensure good spacing between paragraphs and code blocks */
+p + pre {
+  margin-top: 16pt;
+}
+
+/* Ensure good spacing after code blocks before next heading */
+pre + h1,
+pre + h2,
+pre + h3,
+pre + h4 {
+  margin-top: 36pt;
+}
+
+/* ===== Table of Contents (TOC) Styles ===== */
+/* TOC appears right after title on same page */
+h2:first-of-type {
+  /* No page break - stays on same page as title */
+  padding-top: 0;
+  margin-top: 20pt;  /* Space between title and TOC */
+}
+
+/* TOC section styling */
+h2 + ul,
+h2 + ol {
+  margin-top: 20pt;
+}
+
+/* TOC list styling */
+ul ul,
+ol ol {
+  margin-left: 20pt;
+}
+
+/* TOC links should be more prominent */
+a[href^="#"] {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+a[href^="#"]:hover {
+  border-bottom-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+/* ===== Document Version History Styles ===== */
+/* Version history table - special styling */
+h2:nth-of-type(2) {
+  page-break-before: always;
+  color: var(--secondary-color);
+}
+
+/* Version history table */
+table:first-of-type {
+  margin-top: 16pt;
+  font-size: 9.5pt;
+}
+
+/* Version column (first column) */
+table:first-of-type td:first-child {
+  font-family: 'Consolas', monospace;
+  font-weight: 600;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+/* Date column (second column) */
+table:first-of-type td:nth-child(2) {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Author column (third column) */
+table:first-of-type td:nth-child(3) {
+  font-weight: 500;
+}
+
+/* Changes column (fourth column) */
+table:first-of-type td:nth-child(4) {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* ===== Page Break Control ===== */
+/* Ensure TOC and Version History are on separate pages */
+h2[id*="table-of-contents"] ~ hr {
+  page-break-after: always;
+}
+
+h2[id*="document-version-history"] ~ hr {
+  page-break-after: always;
+}
+
+/* Main content (Overview and everything after) starts together
+   after version history - no extra page break needed */
+/* h2:nth-of-type(3) { page-break-before removed } */
+
+/* ===== Print-Specific TOC Styling ===== */
+@media print {
+  /* TOC page background */
+  h2[id*="table-of-contents"] {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 16pt;
+    border-radius: 8pt;
+    border-left: 5px solid var(--primary-color);
+  }
+
+  /* Version history page background */
+  h2[id*="document-version-history"] {
+    background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+    padding: 16pt;
+    border-radius: 8pt;
+    border-left: 5px solid var(--warning-color);
+  }
+}
+
+/* =================================================================
+   GITHUB MARKDOWN CSS OVERRIDES
+   The external github-markdown-css may create spacing issues
+   Updated: 2025-12-05
+   ================================================================= */
+
+/* Override display:block that can cause layout issues */
+.markdown-body table {
+  display: table !important;
+  table-layout: fixed !important;
+  border-spacing: 0 !important;
+}
+
+/* Force remove any spacing in thead */
+.markdown-body thead {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-spacing: 0 !important;
+}
+
+/* Remove pseudo-elements from thead */
+.markdown-body thead::before,
+.markdown-body thead::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Remove any border-top from first row that might look like empty row */
+.markdown-body thead tr:first-child,
+.markdown-body thead tr:first-child th {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure no extra spacing from GitHub CSS tr rules */
+.markdown-body table tr {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Prevent GitHub CSS from adding spacing to cells */
+.markdown-body table td,
+.markdown-body table th {
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Force background to apply correctly (Puppeteer printBackground setting) */
+.markdown-body thead {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}

@@ -132,29 +132,61 @@ md-to-pdf path/to/your-document.md --config-file .md-to-pdf.json --basedir .
 
 파일을 저장할 때마다 자동으로 PDF가 업데이트됩니다!
 
+## 📦 포함된 샘플 문서
+
+이 프로젝트에는 바로 테스트해볼 수 있는 **샘플 문서**가 포함되어 있습니다:
+
+- **`m3sdk-reference-en.md`** (150KB) - M3 SDK 전체 레퍼런스 가이드 (영문)
+- **`m3sdk-reference-ko.md`** (132KB) - M3 SDK 전체 레퍼런스 가이드 (한글)
+
+### 샘플로 바로 테스트하기
+
+```powershell
+# Windows
+.\convert-all-sdk-docs-portable.ps1
+
+# Linux/macOS
+./convert-all-sdk-docs-portable.sh
+```
+
+생성된 PDF는 `output/professional/` 폴더에서 확인할 수 있습니다.
+
+### 자신의 문서 변환하기
+
+```bash
+# 단일 파일 변환
+md-to-pdf your-document.md --config-file .md-to-pdf.json --basedir .
+
+# 또는 포터블 스크립트에 경로 지정 (Windows)
+.\convert-all-sdk-docs-portable.ps1 -DocsPath "C:\path\to\your\docs"
+
+# Linux/macOS
+./convert-all-sdk-docs-portable.sh /path/to/your/docs
+```
+
 ## 📁 프로젝트 구조
 
 ```
 MdToPdf/
-├── package.json                 # npm 패키지 설정
-├── node_modules/                # npm 의존성 (marked, simple-git)
-├── preprocess-markdown.js       # TOC & Git 이력 전처리 스크립트
-├── .md-to-pdf.json              # PDF 변환 설정
-├── sdk-professional.css         # 전문적인 스타일시트 (TOC/버전이력 포함)
-├── convert-all-sdk-docs.ps1     # 전체 변환 (PowerShell)
-├── convert-all-sdk-docs.sh      # 전체 변환 (Bash)
-├── watch-and-convert.ps1        # 자동 감시 (PowerShell)
-├── watch-and-convert.sh         # 자동 감시 (Bash)
+├── package.json                          # npm 패키지 설정
+├── package-lock.json                     # npm 의존성 잠금 파일
+├── node_modules/                         # npm 의존성 (marked, simple-git)
+├── preprocess-markdown.js                # TOC & Git 이력 전처리 스크립트
+├── .md-to-pdf.json                       # PDF 변환 설정
+├── sdk-professional.css                  # 전문적인 스타일시트
+├── convert-all-sdk-docs-portable.ps1     # 포터블 변환 스크립트 (Windows)
+├── convert-all-sdk-docs-portable.sh      # 포터블 변환 스크립트 (Linux/macOS)
+├── m3sdk-reference-en.md                 # 📄 샘플 문서 (영문, 150KB)
+├── m3sdk-reference-ko.md                 # 📄 샘플 문서 (한글, 132KB)
 ├── output/
-│   ├── temp/                    # 임시 전처리 파일 (자동 삭제)
-│   └── professional/            # 생성된 PDF 파일
-│       ├── keytool/
-│       ├── startup/
-│       └── ...
-├── README.md                    # 상세 설명서
-├── QUICK-START.md               # 빠른 시작 가이드
-└── CHANGELOG.md                 # 변경 이력
+│   ├── temp/                             # 임시 전처리 파일 (자동 삭제)
+│   └── professional/                     # 생성된 PDF 파일
+├── README.md                             # 사용 설명서
+└── CHANGELOG.md                          # 변경 이력
 ```
+
+**📄 샘플 문서**: `m3sdk-reference-*.md` 파일들은 이 도구의 기능을 시연하기 위한 예시 문서입니다.
+바로 변환 테스트를 해볼 수 있으며, 실제 사용 시에는 자신의 마크다운 문서 경로를 지정하면 됩니다.
 
 ## 🎨 스타일 커스터마이징
 

@@ -1,6 +1,15 @@
 # Claude Code configuration (local only)
 CLAUDE.md
 
+# Internal development documentation (team-only)
+INTERNAL-DOC-VERSION-MANAGEMENT.md
+PROJECT-SUMMARY.md
+PORTABLE-COMPARISON.md
+PORTABLE-GUIDE.md
+QUICK-START.md
+TEAM-SHARE.md
+CHANGELOG.md
+
 # Node.js dependencies
 node_modules/
 npm-debug.log*

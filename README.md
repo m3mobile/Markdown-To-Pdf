@@ -21,147 +21,86 @@
 - ✅ **자동 감시 모드** - 파일 저장 시 자동 PDF 생성
 - ✅ **LaTeX 불필요** - 복잡한 설치 과정 없음
 
-## 🎁 동료에게 공유하기 - 처음 설치 가이드
-
-이 폴더를 받은 동료는 다음 3단계만 실행하면 바로 사용 가능합니다:
-
-### 1단계: Node.js 설치 확인
-```bash
-node --version
-# v14 이상이 설치되어 있어야 합니다
-# 없다면 https://nodejs.org/ 에서 설치
-```
-
-### 2단계: 로컬 의존성 설치
-```bash
-# 이 프로젝트 폴더에서 실행
-npm install
-```
-이 명령은 다음을 설치합니다:
-- marked (마크다운 파싱)
-- simple-git (Git 히스토리 추출)
-
-### 3단계: md-to-pdf 전역 도구 설치
-```bash
-npm install -g md-to-pdf
-```
-
-### 4단계: 스크립트 실행
-**PowerShell (Windows):**
-```powershell
-.\convert-all-sdk-docs-portable.ps1
-```
-
-**Bash (Linux/macOS/Git Bash):**
-```bash
-chmod +x convert-all-sdk-docs-portable.sh
-./convert-all-sdk-docs-portable.sh
-```
-
-**결과**: `output/professional/` 폴더에 PDF 파일들이 생성됩니다!
-
-### ⚠️ 필수 확인사항
-- ✅ Node.js v14 이상 설치
-- ✅ `npm install` 실행 완료
-- ✅ `npm install -g md-to-pdf` 실행 완료
-- ✅ Git 설치 (선택사항, 버전 히스토리 기능용)
-
-### 💡 문제 해결
-**"md-to-pdf를 찾을 수 없습니다" 오류:**
-```bash
-npm install -g md-to-pdf
-```
-
-**"marked 모듈을 찾을 수 없습니다" 오류:**
-```bash
-npm install
-```
-
-**"권한이 없습니다" 오류 (Linux/macOS):**
-```bash
-chmod +x convert-all-sdk-docs-portable.sh
-```
-
 ## 🚀 빠른 시작
 
-### 1. 필수 요구사항
+### 1. 설치
 
+#### 1-1. Node.js 설치
+- **필수 버전**: v14 이상 (v20 이상 권장)
+- **확인 방법**: `node --version`
+- **다운로드**: https://nodejs.org/
+
+#### 1-2. 의존성 설치
 ```bash
-# Node.js가 설치되어 있는지 확인
-node --version  # v20 이상 권장
+# 프로젝트 의존성 설치 (marked, simple-git)
+npm install
 
 # md-to-pdf 전역 도구 설치
 npm install -g md-to-pdf
-
-# 프로젝트 의존성 설치 (처음 한 번만)
-npm install
 ```
 
-### 2. 모든 SDK 문서를 한 번에 변환
+### 2. 샘플로 바로 테스트
 
-**PowerShell (권장):**
-```powershell
-.\convert-all-sdk-docs.ps1
-```
-
-**Git Bash / Linux:**
-```bash
-./convert-all-sdk-docs.sh
-```
-
-**결과:** `output/professional/` 폴더에 모든 PDF 생성
-
-### 3. 단일 파일 변환
-
-```bash
-# 현재 디렉토리에서 실행 (.md-to-pdf.json 자동 사용)
-md-to-pdf path/to/your-document.md --config-file .md-to-pdf.json --basedir .
-```
-
-### 4. 자동 감시 모드 (파일 저장 시 자동 변환)
-
-**PowerShell:**
-```powershell
-.\watch-and-convert.ps1
-```
-
-**Git Bash:**
-```bash
-./watch-and-convert.sh
-```
-
-파일을 저장할 때마다 자동으로 PDF가 업데이트됩니다!
-
-## 📦 포함된 샘플 문서
-
-이 프로젝트에는 바로 테스트해볼 수 있는 **샘플 문서**가 포함되어 있습니다:
-
-- **`m3sdk-reference-en.md`** (150KB) - M3 SDK 전체 레퍼런스 가이드 (영문)
-- **`m3sdk-reference-ko.md`** (132KB) - M3 SDK 전체 레퍼런스 가이드 (한글)
-
-### 샘플로 바로 테스트하기
+포함된 샘플 문서로 변환을 테스트할 수 있습니다.
 
 ```powershell
 # Windows
 .\convert-all-sdk-docs-portable.ps1
 
 # Linux/macOS
+chmod +x convert-all-sdk-docs-portable.sh
 ./convert-all-sdk-docs-portable.sh
 ```
 
+**샘플 문서:**
+- `m3sdk-reference-en.md` (150KB) - M3 SDK 전체 레퍼런스 가이드 (영문)
+- `m3sdk-reference-ko.md` (132KB) - M3 SDK 전체 레퍼런스 가이드 (한글)
+
 생성된 PDF는 `output/professional/` 폴더에서 확인할 수 있습니다.
 
-### 자신의 문서 변환하기
+### 3. 자신의 문서 변환
 
+#### 단일 파일 변환
 ```bash
-# 단일 파일 변환
 md-to-pdf your-document.md --config-file .md-to-pdf.json --basedir .
+```
 
-# 또는 포터블 스크립트에 경로 지정 (Windows)
+#### 특정 폴더의 모든 문서 변환
+```powershell
+# Windows
 .\convert-all-sdk-docs-portable.ps1 -DocsPath "C:\path\to\your\docs"
 
 # Linux/macOS
 ./convert-all-sdk-docs-portable.sh /path/to/your/docs
+```
+
+### 4. 자동 감시 모드 (선택사항)
+
+파일 저장 시 자동으로 PDF를 생성합니다.
+
+```powershell
+# Windows
+.\watch-and-convert.ps1
+
+# Linux/macOS
+./watch-and-convert.sh
+```
+
+### 💡 문제 해결
+
+**"md-to-pdf를 찾을 수 없습니다":**
+```bash
+npm install -g md-to-pdf
+```
+
+**"marked 모듈을 찾을 수 없습니다":**
+```bash
+npm install
+```
+
+**"권한이 없습니다" (Linux/macOS):**
+```bash
+chmod +x convert-all-sdk-docs-portable.sh
 ```
 
 ## 📁 프로젝트 구조
@@ -181,8 +120,7 @@ MdToPdf/
 ├── output/
 │   ├── temp/                             # 임시 전처리 파일 (자동 삭제)
 │   └── professional/                     # 생성된 PDF 파일
-├── README.md                             # 사용 설명서
-└── CHANGELOG.md                          # 변경 이력
+└── README.md                             # 사용 설명서
 ```
 
 **📄 샘플 문서**: `m3sdk-reference-*.md` 파일들은 이 도구의 기능을 시연하기 위한 예시 문서입니다.
